@@ -1,0 +1,22 @@
+{
+  "name": "shop-serve",
+  "version": "1.0.0",
+  "description": "js阶段项目的服务端接口搭建",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "node": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "shop"
+  ],
+  "author": "yanqi",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.3",
+    "express-formidable": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.15"
+  }
+}
