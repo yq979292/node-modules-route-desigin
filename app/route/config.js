@@ -1,13 +1,21 @@
-import {  registerControl,loginControl } from '../controls/index.js';
+import {  registerControl,loginControl,getDetalControl,getPageShopListControl,getSeachShopListControl,getTypeShopListControl,getTypeOneControl } from '../controls/index.js';
 export default [
     {// 获取商品列表
         route:'/gooodlist', 
         method:'get',
-        handle:()=>{} // 导入接口处理函数
+        handle:getPageShopListControl// 导入接口处理函数
+    },{
+        route:'/gooodlistType', 
+        method:'get',
+        handle:getTypeShopListControl
+    },{
+        route:'/goodSearch', 
+        method:'get',
+        handle:getTypeShopListControl
     },{// 获取一级分类
         route:'/type_one',
         method:'get',
-        handle:()=>{}
+        handle:getSeachShopListControl
     },{// 注册
         route:'/register',
         method:'post',
@@ -19,14 +27,14 @@ export default [
         route:'/login',
         method:'post',
         handle:loginControl
-    },{
+    },{ //????
         route:'/logout',
         method:'get',
         handle:()=>{}
     },{
-        route:'/detail/:Id',
+        route:'/detail',
         method:'post',
-        handle:()=>{}
+        handle:getDetalControl
     },{// c端------购物车
         route:'/shopCarList',
         method:'get',
