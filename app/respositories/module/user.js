@@ -7,7 +7,8 @@ class User{
         // 这里写操作user表的sql 语句
         this.sql = {
             insetUser:`INSERT INTO user (name,pwd,role) VALUES (?,?,?);`,
-            seletUser:`SELECT name FROM user WHERE  name= ?;`
+            seletUser:`SELECT name FROM user WHERE  name= ?;`,
+            selectUserInfo:`SELECT Id,name,pwd,role FROM user WHERE name=?;`
         };
         // bind() query函数中this 为  User 创建的实例对象那个
         this.query = DB.query.bind(this);
@@ -20,6 +21,9 @@ class User{
     }
     queryInserUser(params){
         return this.query(this.sql.insetUser,params)
+    }
+    querySelectUserInfo(params){
+        return this.query(this.sql.selectUserInfo,params)
     }
 }
 

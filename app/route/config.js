@@ -1,4 +1,4 @@
-import {  registerControl } from '../controls/index.js';
+import {  registerControl,loginControl } from '../controls/index.js';
 export default [
     {// 获取商品列表
         route:'/gooodlist', 
@@ -18,7 +18,7 @@ export default [
     },{
         route:'/login',
         method:'post',
-        handle:()=>{}
+        handle:loginControl
     },{
         route:'/logout',
         method:'get',
