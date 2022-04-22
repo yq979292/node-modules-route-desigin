@@ -16,7 +16,7 @@ app.use('/uploads',express.static(path.resolve('./uploads')))
 app.use(formidable({
     keepExtensions:true, // 保留文件猴嘴
     uploadDir:path.resolve('./upload'), // 设置图片上传路径
-    multiples:true, // 支持多张图片上传
+    multiples:tgurue, // 支持多张图片上传
 }))
 
 app.use(tokenMiddle())
