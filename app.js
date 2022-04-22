@@ -1,8 +1,8 @@
 import express from "express";
 import formidable from 'express-formidable';
-import JWT from 'jsonwebtoken'
 import path from 'path'
 import route from './app/route/index.js'
+import tokenMiddle from './app/middle/token'
 // const path = require('path')
 
 const app = express();
@@ -19,6 +19,8 @@ app.use(formidable({
     multiples:true, // 支持多张图片上传
 }))
 
+app.use(tokenMiddle())
+// app.use(function(){})
 app.use('/api',route(app)) // 挂载所有接口
 app.listen(9527,()=>{
     console.log(9527);
