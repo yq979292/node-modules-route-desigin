@@ -1,5 +1,6 @@
 import {verityfiMethod } from './method/userTest.js'
 export default {
+    // key 表示内验证参数, 一个规则赋值对象 ;多个规则赋值数组
     username:[
         {
             required:true,

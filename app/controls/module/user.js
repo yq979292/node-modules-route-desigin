@@ -6,9 +6,9 @@ import {
  * 
  * @param {*} req 
  * @param {*} res 
- */ 
- export let  register = async (req, res) => {
-     console.log(req.fields);
+ */
+export let register = async (req, res) => {
+    console.log(req.fields);
     console.log('----------------------visiter registre---------------------');
     // 1: 获取请求餐宿
     let {
@@ -54,12 +54,26 @@ import {
         let result = await userSQL.querySelectUser(username);
         console.log('------------------return database----------------------------');
         console.log(result);
-        // 4: 不存在将数据添加到数据库中
+        if(result.length===0){
+            // 4:用户不存在,添加用户
+            let params = [username,password,1]
+            let insertResult = await userSQL.queryInserUser(params)
+            insertResult && res.json({
+                code:2000,
+                msg:'注册成功',
+                insertResult, // 为了调试方便
+            })
+        }else{
+            res.json({
+                code:2002,
+                msg:'用户已经注册'
+            })
+        }
     } catch (err) {
         console.log(err);
         res.json({
-            code:5000,
-            msg:'serve error'
+            code: 5000,
+            msg: 'serve error'
         })
     }
 
