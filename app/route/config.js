@@ -1,3 +1,4 @@
+import {  registerControl } from '../controls/index.js';
 export default [
     {// 获取商品列表
         route:'/gooodlist', 
@@ -10,7 +11,10 @@ export default [
     },{// 注册
         route:'/register',
         method:'post',
-        handle:()=>{}
+        handle:registerControl
+        // handle:()=>{
+        //     console.log('handle run');
+        // }
     },{
         route:'/login',
         method:'post',

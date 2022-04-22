@@ -10,6 +10,7 @@ export default ()=>{
     }
     // 2: 验证
     return (req,res,next)=>{
+        console.log('-----------------token middle----------------------');
         let url = req.url;
         if(url == '/api/login' || url === '/api/register'){
             if(url == '/api/login'){
@@ -17,6 +18,7 @@ export default ()=>{
                 // 因为在登录接口处理中不想导入 jsonwebtoken 了
                 res.jwt.sign = jwt.sign;
             }
+            console.log('----------------token not vertify------------------');
             next();
         }else{
             // 验证token

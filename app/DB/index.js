@@ -29,9 +29,32 @@ const repool = ()=>{
 }
 
 const pool = repool();
+// promise 风格 ,封装 请求数据库方法
+/**
+ * 
+ * @param {String} sql sql 语句 
+ * @param {Array} params  sql语句的赋值
+ * @returns  {Promise}
+ */
+const query = (sql,params)=>{
+    console.log('-------------------------viisttoe  DB query-------------------------------');
+    return new Promise((resolve,reject)=>{
+        // 获取连接池中连接
+        pool.getConnection((err,connet)=>{
+            err && reject(err)
+            // 项数据库发送请求;
+            connet.query(sql,params,(err,data)=>{
+                // 数据库响应
+                err && reject(err);
+                data && resolve(data)
+            })
+        })
+    })
+}
 
 export default {
     repoolCopy:repool,
     repool:pool,
     connet,
+    query
 }

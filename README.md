@@ -29,3 +29,8 @@
 |--package.json                  npm工程的配置文件
 |--REAME.md                      项目的说明文件
 ~~~
+
+
+## respositories 
+
+> 有几个表就创建几个js文件
