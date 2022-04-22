@@ -1,0 +1,12 @@
+# 注释
+# 告诉git哪些文案不需要仓库管理
+
+/node_modules/
+
+# 开发者工具自动创建文件不管理
+.vscode
+
+# 过滤所有安装以来出错的日志文件
+npm-debug.log*
+yarn-error.log*
+package-lock.json
