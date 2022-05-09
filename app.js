@@ -19,8 +19,9 @@ app.use(formidable({
     // bug1 语法错误 tgurue--> true
     multiples:true, // 支持多张图片上传
 }))
+// 处理权限, 测试关闭该功能
+// app.use(tokenMiddle())
 
-app.use(tokenMiddle())
 // app.use('/api',route(app))  // bug: api 无效
 // app.use(route(app))// 挂载所有接口 
 
